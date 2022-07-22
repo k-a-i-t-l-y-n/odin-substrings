@@ -1,0 +1,15 @@
+#This method returns hash that consists of the words\
+#included in the dictionary and its occurences
+
+def substrings(text, dictionary)
+    sub_hash = Hash.new(0) #new hash with default value of zero
+    dictionary.each do |word| #gets each word from the dictionary
+        if(text.include?(word))
+            sub_hash[word] = text.scan(word).count #scan returns array with elements matching the word
+        end
+    end
+    sub_hash
+end
+
+dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
+puts substrings("Howdy partner, sit down! How's it going?", dictionary)
